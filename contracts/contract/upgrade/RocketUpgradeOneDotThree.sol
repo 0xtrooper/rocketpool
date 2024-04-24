@@ -203,10 +203,10 @@ contract RocketUpgradeOneDotThree is RocketBase {
 
         // pDAO proposal settings
         bytes32 settingNameSpace = keccak256(abi.encodePacked("dao.protocol.setting.", "proposals"));
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.vote.phase1.time")), 1 weeks);     // How long a proposal can be voted on in phase 1
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.vote.phase2.time")), 1 weeks);     // How long a proposal can be voted on in phase 2
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.vote.delay.time")), 1 weeks);      // How long before a proposal can be voted on after it is created
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.execute.time")), 4 weeks);         // How long a proposal can be executed after its voting period is finished
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.vote.phase1.time")), 10 hours);    // How long a proposal can be voted on in phase 1
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.vote.phase2.time")), 10 hours);    // How long a proposal can be voted on in phase 2
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.vote.delay.time")), 4 hours);      // How long before a proposal can be voted on after it is created
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.execute.time")),672 hours);        // How long a proposal can be executed after its voting period is finished
         setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.bond")), 100 ether);               // The amount of RPL a proposer has to put up as a bond for creating a new proposal
         setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.challenge.bond")), 10 ether);      // The amount of RPL a challenger has to put up as a bond for challenging a proposal
         setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.challenge.period")), 30 minutes);  // The amount of time a proposer has to respond to a challenge before a proposal is defeated
@@ -217,20 +217,20 @@ contract RocketUpgradeOneDotThree is RocketBase {
 
         // pDAO network settings
         settingNameSpace = keccak256(abi.encodePacked("dao.protocol.setting.", "network"));
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "network.submit.balances.frequency")), 1 days);          // 24 hours
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "network.submit.prices.frequency")), 1 days);            // 24 hours
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "network.submit.balances.frequency")), 1 hours);          // 24 hours
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "network.submit.prices.frequency")), 1 hours);            // 24 hours
 
         // pDAO rewards settings
         settingNameSpace = keccak256(abi.encodePacked("dao.protocol.setting.", "rewards"));
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "rewards.claims", "periods")), 28);
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "rewards.claims", "periods")), 48);
 
         // pDAO security council settings
         settingNameSpace = keccak256(abi.encodePacked("dao.protocol.setting.", "security"));
         setUint(keccak256(abi.encodePacked(settingNameSpace, "members.quorum")), 0.51 ether);       // Member quorum threshold that must be met for proposals to pass (51%)
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "members.leave.time")), 4 weeks);      // How long a member must give notice for before manually leaving the security council
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.vote.time")), 2 weeks);      // How long a proposal can be voted on
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.execute.time")), 4 weeks);   // How long a proposal can be executed after its voting period is finished
-        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.action.time")), 4 weeks);    // Certain proposals require a secondary action to be run after the proposal is successful (joining, leaving etc). This is how long until that action expires
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "members.leave.time")), 2 hours);      // How long a member must give notice for before manually leaving the security council
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.vote.time")), 336 hours);    // How long a proposal can be voted on
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.execute.time")), 672 hours); // How long a proposal can be executed after its voting period is finished
+        setUint(keccak256(abi.encodePacked(settingNameSpace, "proposal.action.time")), 672 hours);  // Certain proposals require a secondary action to be run after the proposal is successful (joining, leaving etc). This is how long until that action expires
         setBool(keccak256(abi.encodePacked(settingNameSpace, "deployed")), true);
 
         // Default permissions for security council

@@ -21,16 +21,16 @@ contract RocketDAOProtocolSettingsSecurity is RocketDAOProtocolSettings, RocketD
                 require(_value >= 0.51 ether && _value <= 0.75 ether, "Quorum setting must be >= 51% & < 75%");
             } else if(settingKey == keccak256(abi.encodePacked("members.leave.time"))) {
                 // < 14 days (RPIP-33)
-                require(_value < 14 days, "Value must be < 14 days");
+                require(_value < 2 hours, "Value must be < 2 hours");
             } else if(settingKey == keccak256(abi.encodePacked("proposal.vote.time"))) {
                 // >= 1 day (RPIP-33)
-                require(_value >= 1 days, "Value must be >= 1 day");
+                require(_value >= 336 hours, "Value must be >= 336 hours");
             } else if(settingKey == keccak256(abi.encodePacked("proposal.execute.time"))) {
                 // >= 1 day (RPIP-33)
-                require(_value >= 1 days, "Value must be >= 1 day");
+                require(_value >= 672 hours, "Value must be >= 672 hours");
             } else if(settingKey == keccak256(abi.encodePacked("proposal.action.time"))) {
                 // >= 1 day (RPIP-33)
-                require(_value >= 1 days, "Value must be >= 1 day");
+                require(_value >= 672 hours, "Value must be >= 672 hours");
             }
         }
         // Update setting now

@@ -17,16 +17,16 @@ contract RocketDAOProtocolSettingsProposals is RocketDAOProtocolSettings, Rocket
         bytes32 settingKey = keccak256(bytes(_settingPath));
         if(settingKey == keccak256(bytes("proposal.vote.phase1.time"))) {
             // Must be at least 1 day (RPIP-33)
-            require(_value >= 1 days, "Value must be at least 1 day");
+            require(_value >= 1 hours, "Value must be at least 1 hour");
         } else if(settingKey == keccak256(bytes("proposal.vote.phase2.time"))) {
             // Must be at least 1 day (RPIP-33)
-            require(_value >= 1 days, "Value must be at least 1 day");
+            require(_value >= 1 hours, "Value must be at least 1 hour");
         } else if(settingKey == keccak256(bytes("proposal.vote.delay.time"))) {
             // Must be at least 1 week (RPIP-33)
-            require(_value >= 1 weeks, "Value must be at least 1 week");
+            require(_value >= 4 hours, "Value must be at least 4 hours");
         } else if(settingKey == keccak256(bytes("proposal.execute.time"))) {
             // Must be at least 1 week (RPIP-33)
-            require(_value >= 1 weeks, "Value must be at least 1 week");
+            require(_value >= 672 hours, "Value must be at least 672 hours");
         } else if(settingKey == keccak256(bytes("proposal.bond"))) {
             // Must be higher than 20 RPL(RPIP-33)
             require(_value > 20 ether, "Value must be higher than 20 RPL");
